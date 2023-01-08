@@ -1,0 +1,33 @@
+# GET http://localhost:3000/costitem
+
+# ###
+# POST http://localhost:3000/costitem/addcost/
+# Content-Type: application/json
+
+# {
+#   "user_id": "123",
+#   "year": 2021,
+#   "month": 1,
+#   "day": 15,
+#   "id": "daniel shkliar",
+#   "description": "Grocery shopping",
+#   "category": "food",
+#   "sum": 150
+# }
+
+# ###
+# GET http://localhost:3000/costitem/report/?user_id=123&year=2021&month=1
+# Content-Type: application/json
+
+# ###
+# GET http://localhost:3000/costitem/about/
+# Content-Type: application/json
+
+
+
+# ###
+# GET http://localhost:3000/
+
+GET mongodb+srv://liordaniel12:daniellior12@costmanagementcluster.mongodb.net/test/devices
+
+
