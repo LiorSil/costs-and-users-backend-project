@@ -3,7 +3,8 @@ const express = require("express");
 const app = express();
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
-const AddEducation = require("./controllers/costs.controller");
+//const AddEducation = require("./controllers/costs.controller");
+const costsRouter = require("./routes/costs.router");
 
 mongoose.set("strictQuery", true);
 
@@ -21,13 +22,15 @@ const db = mongoose.connection;
 db.on("error", (error) => console.error(error));
 db.once("open", () => console.log("Connected to Database"));
 
+app.use("/costs", costsRouter);
+
 app.listen(3000, () => {
   console.log("Web service listening on port 3000");
 });
 
-AddEducation("Pencil", 2);
-AddEducation("Pen", 3);
-AddEducation("Eraser", 4);
+//AddEducation("Pencil", 2);
+//AddEducation("Pen", 3);
+//AddEducation("Eraser", 4);
 
 // Create a model for the collection
 
