@@ -1,24 +1,22 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 
 const costSchema = new mongoose.Schema({
-    
   user_id: { type: String, required: true },
 
-  year:
-   { 
+  year: {
     type: Number,
-    required: true 
-    },
+    required: true,
+  },
 
-  month: { 
+  month: {
     type: Number,
-    required: true 
-    },
+    required: true,
+  },
 
   day: {
-     type: Number, 
-     required: true 
-    },
+    type: Number,
+    required: true,
+  },
 
   id: { type: String, required: true },
 
@@ -26,7 +24,7 @@ const costSchema = new mongoose.Schema({
 
   category: { type: String, required: true },
 
-  sum: { type: Number, required: true }
+  sum: { type: Number, required: true },
 });
 
 // const Cost = mongoose.model('Cost', costSchema);
@@ -49,4 +47,4 @@ const costSchema = new mongoose.Schema({
 //     res.send(cost);
 //   });
 // });
-module.exports = mongoose.model('addcostmodel', costSchema);
+module.exports = mongoose.model("addcostmodel", costSchema);
