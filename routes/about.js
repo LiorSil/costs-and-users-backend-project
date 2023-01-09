@@ -1,17 +1,17 @@
-app.get('/about/', (req, res) => {
+app.get("/about", (req, res) => {
   const developers = [
     {
       firstname: "Daniel",
       lastname: "Shkliar",
       id: "208494906",
-      email: "daniel.shkliar@gmail.com"
+      email: "daniel.shkliar@gmail.com",
     },
     {
       firstname: "Lior",
       lastname: "Silman",
-      id: "789012",
-      email: "jane.doe@example.com"
-    }
+      id: "315318261",
+      email: "lior.silmansoad@gmail.com",
+    },
   ];
   res.send(developers);
 });
