@@ -23,6 +23,7 @@ db.on("error", (error) => console.error(error));
 db.once("open", () => console.log("Connected to Database"));
 
 app.use("/costs", costsRouter);
+//app.use("/report", costsRouter);//
 
 app.listen(3000, () => {
   console.log("Web service listening on port 3000");

@@ -1,49 +1,36 @@
-const Education = require("../models/costs.model/Education");
+const Product = require("../models/products.model");
 const mongoose = require("mongoose");
 
 function postCost(req, res) {
-  if (!req.body.name) {
-    return res.status(400).json({ error: "Missing Product name" });
-  }
+  //Code should get data from REQUEST HEADER and not from the body
+  // const item = req.headers.item;
+  // const category = req.headers.category;
+  // const price = req.headers.price;
+  // const desc = req.headers.desc;
+  // date = req.headers.date; // date is String or Date type ??
 
-  if (!req.body.qty) return res.status(400).json({ error: "Missing quantity" });
-  //  console.log(`req.body.name ${req.body.name}`);
-  //console.log(`req.body.qty ${req.body.qty}`);
-  console.log("updating education cost (document)");
+  // Destructuring the request header object { key : NewVariable} = req.headers
+  const arr = [item1, item2, item3];
+  const {
+    item: item,
+    category: category,
+    price: price,
+    desc: desc,
+    // date : date; // date is String or Date type ??
+  } = req.headers;
 
-  const product = req.body.name;
-  const quantity = req.body.qty;
+  if (!item) return res.status(400).json({ error: "Missing Product item" });
+  if (!category) return res.status(400).json({ error: "Missing category" });
+  if (!price) return res.status(400).json({ error: "Missing price" });
 
-  let item = Education.find((obj) => {
-    return obj.name === product;
-  });
-
-  const educationScheme = new mongoose.Schema({
-    id: Number,
-    item: String,
-    qty: Number,
-    pricePerItem: Number,
-    totalPrice: String,
-  });
-
-  const educationProduct = mongoose.model("costs", educationScheme);
-
-  const cost = new educationProduct({
-    id: item.id,
-    item: item.name,
-    qty: quantity,
-    pricePerItem: item.price,
-    totalPrice: `${quantity * item.price}NIS`,
-  });
-
+  let id = 0; //id Should be unique
+  const product = new Product({ id, item, category, price, desc });
   // Save the document to the collection
-  cost.save(function (err, cost) {
+  product.save(function (err, product) {
     if (err) return console.error(err);
-    console.log("Document inserted");
   });
-  res.status(201).json({ message: "Cost added" });
+  res.status(201).json({ message: "Cost  added" });
 }
-
 module.exports = {
   postCost: postCost,
 };
